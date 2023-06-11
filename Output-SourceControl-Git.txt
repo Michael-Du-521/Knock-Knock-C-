@@ -1,0 +1,19 @@
+﻿A new Git repository has been created for you in C:\Users\13104\Source\Repos\NewRepo. Open the Git Repository window to view its contents.
+Opening repositories:
+C:\Users\13104\Source\Repos\NewRepo
+Opening repositories:
+C:\Users\13104\Source\Repos\NewRepo
+Opening repositories:
+C:\Users\13104\Source\Repos\NewRepo
+Opening repositories:
+C:\Users\13104\Source\Repos\NewRepo
+Git failed with a fatal error.
+Git failed with a fatal error.
+unable to access 'https://github.com/Michael-Du-521/Knock-Knock-C-.git/': error setting certificate verify locations:  CAfile: C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt CApath: none
+
+Pushing master
+Error encountered while pushing to the remote repository: Git failed with a fatal error.
+Git failed with a fatal error.
+unable to access 'https://github.com/Michael-Du-521/Knock-Knock-C-.git/': error setting certificate verify locations:  CAfile: C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt CApath: none
+
+Failed to push to the remote repository. See the Output window for more details.
