@@ -37,6 +37,10 @@ namespace ConsoleApp1
             #region MyRegion
             int myAge = 24, myWeight = 65;
             #endregion
+
+            #region MyRegion
+            Console.WriteLine(Convert.ToString(25489,2));
+            #endregion
         }
     }
 }
