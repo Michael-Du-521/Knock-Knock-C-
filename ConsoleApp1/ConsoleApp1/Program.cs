@@ -37,19 +37,6 @@ namespace ConsoleApp1
             #region MyRegion
             int myAge = 24, myWeight = 65;
             #endregion
-
-            #region MyRegion
-            Console.WriteLine(Convert.ToString(25489,2));
-            #endregion
-
-            #region MyRegion
-            short c, d;
-            c = 32767;
-            d = c + 1;
-            Console.WriteLine("a={0}",a);
-            Console.WriteLine("b={0}",b);
-
-            #endregion
         }
     }
 }
