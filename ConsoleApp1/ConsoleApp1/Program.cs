@@ -37,6 +37,46 @@ namespace ConsoleApp1
             #region MyRegion
             int myAge = 24, myWeight = 65;
             #endregion
+
+            #region MyRegion
+            string mySentence;
+            mySentence = "How do you do?";
+            Console.WriteLine(mySentence);
+            mySentence = "I am OK!";
+            Console.WriteLine(mySentence);
+            #endregion
+
+            #region MyRegion
+            Console.Write("Bob");
+            Console.WriteLine("Kevin");
+            Console.Write
+                ("Tom");
+            #endregion
+
+            #region MyRegion
+            Console.WriteLine("Please input your name");
+            string name = Console.ReadLine();
+            Console.WriteLine("any key to the next ");
+            Console.ReadKey();
+            Console.WriteLine("Your name is " + name);
+
+            #endregion
+
+            //#region MyRegion
+            //Console.WriteLine("Please input a character");
+            //int ch = Console.Read();
+            //Console.WriteLine("The ASCII code is " + ch);
+            //#endregion
+
+            #region MyRegion
+            double r , s;
+            Console.Write("r = ");
+            r = Convert.ToDouble(Console.ReadLine());
+            s = 3.14 * r * r;
+            Console.WriteLine("s = " + s);
+            #endregion
+            
+
         }
     }
 }
