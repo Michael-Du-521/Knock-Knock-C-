@@ -53,14 +53,14 @@ namespace ConsoleApp1
                 ("Tom");
             #endregion
 
-            #region MyRegion
-            Console.WriteLine("Please input your name");
-            string name = Console.ReadLine();
-            Console.WriteLine("any key to the next ");
-            Console.ReadKey();
-            Console.WriteLine("Your name is " + name);
+            //#region MyRegion
+            //Console.WriteLine("Please input your name");
+            //string name = Console.ReadLine();
+            //Console.WriteLine("any key to the next ");
+            //Console.ReadKey();
+            //Console.WriteLine("Your name is " + name);
 
-            #endregion
+            //#endregion
 
             //#region MyRegion
             //Console.WriteLine("Please input a character");
@@ -68,15 +68,22 @@ namespace ConsoleApp1
             //Console.WriteLine("The ASCII code is " + ch);
             //#endregion
 
-            #region MyRegion
-            double r , s;
-            Console.Write("r = ");
-            r = Convert.ToDouble(Console.ReadLine());
-            s = 3.14 * r * r;
-            Console.WriteLine("s = " + s);
-            #endregion
-            
+            //#region MyRegion
+            //double r , s;
+            //Console.Write("r = ");
+            //r = Convert.ToDouble(Console.ReadLine());
+            //s = 3.14 * r * r;
+            //Console.WriteLine("s = " + s);
+            //#endregion
 
+            #region
+            int code = (int)'A';
+            Console.WriteLine("A->{0}",code);
+            #endregion
+
+            #region MyRegion
+            Console.WriteLine("\u0047\uoo6F\u0064\u0021");
+            #endregion
         }
     }
 }
