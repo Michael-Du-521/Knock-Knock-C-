@@ -7,10 +7,35 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+    enum WeekDays:short
+    {
+        Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+    }
+
+
+    struct Student
+    {
+        public int number;
+        public string name;
+        public int sex;
+
+    }
+
+    enum sex :short { 
+    Male,Female}
     internal class Program
     {
         static void Main(string[] args)
         {
+
+            Student mrd;
+            mrd.number = 100;
+            mrd.name = "miguel";
+            mrd.sex = (int)sex.Male;
+            #region MyRegion
+            WeekDays today = (WeekDays)3;
+            Console.WriteLine(  "Today is " +today);
+            #endregion
             //            #region 
             //            //Console.WriteLine(Convert.ToString(89, 2));
             //            //Console.ReadKey();
@@ -295,5 +320,9 @@ namespace ConsoleApp1
             }
             Console.WriteLine(weekstring);
         }
+
+      
+
+        
     }
 }
