@@ -28,6 +28,14 @@ namespace ConsoleApp1
     internal class Program
     {
 
+        static void Swap(ref int x, ref int y) {
+            int temp;
+            temp = x;
+            x = y;
+            y = temp;
+        }
+
+
         static string CalculateWeekDay(int y, int m, int d)
         {
             if (m == 1 || m == 2) {
@@ -51,10 +59,22 @@ namespace ConsoleApp1
         }
         static void Main(string[] args)
         {
+            #region MyRegion
+            int a = 1;
+            int b = 3;
+            Swap(ref a, ref b);
+            Console.WriteLine( "a ={0},b={1}",a,b);
+
+            #endregion
 
             #region MyRegion
             string stringWeek = CalculateWeekDay(2023, 6, 24);
             Console.WriteLine(stringWeek);
+            #endregion
+
+            #region MyRegion
+            string stringWeek1 = CalculateWeekDay(2008, 5, 1);
+            Console.WriteLine(stringWeek1);
             #endregion
 
             #region MyRegion
