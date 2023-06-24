@@ -29,6 +29,20 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+
+            #region MyRegion
+            int[][] jaggedMatrix = new int[3][];
+            jaggedMatrix[0] = new int[2];
+            jaggedMatrix[1] = new int[4];
+            jaggedMatrix[2] = new int[5];
+            foreach (int[] line in jaggedMatrix) {
+                foreach (int element in line)
+                {
+                    Console.Write( element);
+                }
+                Console.WriteLine( "\n");
+            }
+            #endregion
             #region MyRegion
             //二维数组
             int[,] matrix = { { 0,1,2},{3,4,5 } };
@@ -286,7 +300,12 @@ namespace ConsoleApp1
             //            //Console.WriteLine(x5);
             //            //#endregion
 
-            //            #region MyRegion
+            //#region MyRegion
+            //Console.WriteLine("Please input your name");
+            //string name = Console.ReadLine();
+            //Console.WriteLine("any key to the next ");
+            //Console.ReadKey();
+            //Console.WriteLine("Your name is " + name);
 
             //            Console.WriteLine( Math.Pow(2,3));
             //            Console.WriteLine(Math.Sqrt(16));
@@ -341,6 +360,22 @@ namespace ConsoleApp1
             //            Console.WriteLine( n4);
             //            #endregion
 
+            //#region MyRegion
+            //double r , s;
+            //Console.Write("r = ");
+            //r = Convert.ToDouble(Console.ReadLine());
+            //s = 3.14 * r * r;
+            //Console.WriteLine("s = " + s);
+            //#endregion
+
+            #region
+            int code = (int)'A';
+            Console.WriteLine("A->{0}",code);
+            #endregion
+
+            //#region MyRegion
+            //Console.WriteLine("\u0047\uoo6F\u0064\u0021");
+            //#endregion
             //double x, y;
             //Console.WriteLine( "x=");
             //x = Convert.ToDouble(Console.ReadLine());
