@@ -59,6 +59,20 @@ namespace ConsoleApp1
         }
         static void Main(string[] args)
         {
+
+            #region MyRegion
+            int[][] jaggedMatrix = new int[3][];
+            jaggedMatrix[0] = new int[2];
+            jaggedMatrix[1] = new int[4];
+            jaggedMatrix[2] = new int[5];
+            foreach (int[] line in jaggedMatrix) {
+                foreach (int element in line)
+                {
+                    Console.Write( element);
+                }
+                Console.WriteLine( "\n");
+            }
+            #endregion
             #region MyRegion
             int a = 1;
             int b = 3;
