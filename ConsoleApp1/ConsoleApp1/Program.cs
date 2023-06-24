@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,11 +29,54 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            #region MyRegion
+            //二维数组
+            int[,] matrix = { { 0,1,2},{3,4,5 } };
+
+            for (int i = 0; i <2; i++) { 
+                for(int j = 0; j < 3; j++)
+                {
+                    Console.WriteLine("The element in the martix[{0},{1}] is {2}", i + 1, j +1 , matrix[i,j]);
+                }
+            }
+
+
+            #endregion
+            #region MyRegion
+            //string[] friendsName = new string[3];
+
+            //friendsName.Append("刘备");
+            //friendsName.Append("关羽");
+            //friendsName.Append("张飞");
+            string[] friendsName = { "刘备", "关羽", "张飞" };
+            Console.WriteLine(  friendsName);
+            Console.WriteLine(friendsName.Length);
+            #endregion
+
+            #region MyRegion
+            foreach (string name in friendsName) {
+                //name = 1;
+                Console.WriteLine(name);
+            }
+            #endregion
 
             Student mrd;
             mrd.number = 100;
             mrd.name = "miguel";
             mrd.sex = (int)sex.Male;
+
+            int number = 10000;
+
+            int[] scores = { 100, 49, 39, 80, 65, 96 };
+            string[] names = { "张三", "历史", "黄飞鸿", "李小龙", "左足", "秦始皇" };
+            int sumOfScores = scores[0] + scores[1] + scores[2] + scores[3] + scores[4] + scores[5];
+            int sum = 0;
+            for (int i = 0; i < scores.Length; i++) {
+                sum += scores[i];
+            }
+            Console.WriteLine( sum);
+            Console.WriteLine(sumOfScores);
+            Console.WriteLine("学生的学号是{0}", mrd.number );
             #region MyRegion
             WeekDays today = (WeekDays)3;
             Console.WriteLine(  "Today is " +today);
@@ -321,6 +366,7 @@ namespace ConsoleApp1
             Console.WriteLine(weekstring);
         }
 
+        
       
 
         
