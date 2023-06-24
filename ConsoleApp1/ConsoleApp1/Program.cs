@@ -27,8 +27,49 @@ namespace ConsoleApp1
     Male,Female}
     internal class Program
     {
+
+        static string CalculateWeekDay(int y, int m, int d)
+        {
+            if (m == 1 || m == 2) {
+                m += 12;
+                y--;
+            }
+            string  weekdayString = "";
+            int week= ( d +2*m+3*(m+1)/5+y+y/4-y/100+y/400+1)% 7;
+            switch (week) {
+                case 0:weekdayString = "星期日";break;
+                case 1:weekdayString = "星期一";break;
+                case 2:weekdayString = "星期二";break;
+                case 3: weekdayString = "星期三"; break;
+                case 4: weekdayString = "星期四"; break;
+                case 5: weekdayString = "星期五"; break;
+                case 6: weekdayString = "星期六"; break;
+                default: break;
+            }
+           
+            return weekdayString;
+        }
         static void Main(string[] args)
         {
+
+            #region MyRegion
+            string stringWeek = CalculateWeekDay(2023, 6, 24);
+            Console.WriteLine(stringWeek);
+            #endregion
+
+            #region MyRegion
+            int[][] jaggedMatrix = new int[3][];
+            jaggedMatrix[0] = new int[2];
+            jaggedMatrix[1] = new int[4];
+            jaggedMatrix[2] = new int[5];
+            foreach (int[] line in jaggedMatrix) {
+                foreach (int element in line)
+                {
+                    Console.Write( element);
+                }
+                Console.WriteLine( "\n");
+            }
+            #endregion
             #region MyRegion
             //二维数组
             int[,] matrix = { { 0,1,2},{3,4,5 } };
@@ -286,7 +327,12 @@ namespace ConsoleApp1
             //            //Console.WriteLine(x5);
             //            //#endregion
 
-            //            #region MyRegion
+            //#region MyRegion
+            //Console.WriteLine("Please input your name");
+            //string name = Console.ReadLine();
+            //Console.WriteLine("any key to the next ");
+            //Console.ReadKey();
+            //Console.WriteLine("Your name is " + name);
 
             //            Console.WriteLine( Math.Pow(2,3));
             //            Console.WriteLine(Math.Sqrt(16));
@@ -341,6 +387,22 @@ namespace ConsoleApp1
             //            Console.WriteLine( n4);
             //            #endregion
 
+            //#region MyRegion
+            //double r , s;
+            //Console.Write("r = ");
+            //r = Convert.ToDouble(Console.ReadLine());
+            //s = 3.14 * r * r;
+            //Console.WriteLine("s = " + s);
+            //#endregion
+
+            #region
+            int code = (int)'A';
+            Console.WriteLine("A->{0}",code);
+            #endregion
+
+            //#region MyRegion
+            //Console.WriteLine("\u0047\uoo6F\u0064\u0021");
+            //#endregion
             //double x, y;
             //Console.WriteLine( "x=");
             //x = Convert.ToDouble(Console.ReadLine());
