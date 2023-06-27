@@ -28,6 +28,35 @@ namespace ConsoleApp1
     internal class Program
     {
 
+        static int Fibnacci(int n) {
+            if ((n==1)||(n==2) )
+            {
+                return 1;
+            }
+            else
+            {
+                return (Fibnacci(n - 1) + Fibnacci(n - 2));
+            }
+
+        }
+        static int Fac(int n)
+        {
+            if (n <= 1) {
+                return 1;
+            }
+            else
+            {
+                return n * Fac(n - 1);
+            }
+        }
+
+        static double CalculateCircle(double r, out double c)
+        {
+            c = 2 * Math.PI * r;
+            double S = Math.PI * r * r;
+            return S;
+        }
+
         static void Swap(ref int x, ref int y) {
             int temp;
             temp = x;
@@ -59,6 +88,22 @@ namespace ConsoleApp1
         }
         static void Main(string[] args)
         {
+            #region MyRegion
+            Console.WriteLine(Fibnacci(7)); 
+            #endregion
+            #region MyRegion
+            int result = Fac(5);
+            Console.WriteLine("5!={0}",result);
+            #endregion
+
+            #region MyRegion
+            Console.Write("半径: ");
+            double radius = 3;
+            double circumference;
+            double area = CalculateCircle(radius, out circumference);
+            Console.WriteLine("周长:{0}",circumference);
+            Console.WriteLine("面积：{0}",area);
+            #endregion
 
             #region MyRegion
             int[][] jaggedMatrix = new int[3][];
@@ -92,10 +137,10 @@ namespace ConsoleApp1
             #endregion
 
             #region MyRegion
-            int[][] jaggedMatrix = new int[3][];
-            jaggedMatrix[0] = new int[2];
-            jaggedMatrix[1] = new int[4];
-            jaggedMatrix[2] = new int[5];
+            int[][] jaggedMatrix1 = new int[3][];
+            jaggedMatrix1[0] = new int[2];
+            jaggedMatrix1[1] = new int[4];
+            jaggedMatrix1[2] = new int[5];
             foreach (int[] line in jaggedMatrix) {
                 foreach (int element in line)
                 {
