@@ -308,5 +308,95 @@ Exception类，拥有Message 和 StackTrace 公共属性。 Message 用于描述异常的原因；St
 13 Windows 窗体编程
 
 图形用户界面（GUI）
-窗体（Form）
+窗体（Form）：可以视为放置组件的容器(Container)
 组件（Component）
+-标题栏
+-菜单栏
+-下拉式列表框
+-工具栏
+-控制按钮（Control Box）
+-状态栏
+-视图区
+-滚动条
+-边框(Border)
+
+#按钮
+#文本框
+#复选框
+
+#Timer组件
+
+可见的组件，我们称之为控件（Control）
+
+partical 关键字 允许 把同一个类分别定义在多个源文件中。
+
+21 多线程
+
+操作系统以进程(Process)的方式运行应用程序，进程包括 应用程序的指令流、运行程序所需的内存和寄存器资源。
+系统里开启三个应用程序，系统就创建了三个进程，就增加了三条执行路线。操作系统轮流执行每个进程，每个进程执行一小段时间，三个进程循环往复，交替进行。因为交替时间很短（一般只有几十毫秒）人们根本感觉不到如此短暂的停顿。
+
+在一个进程中，我们可以创建若干个线程（Threading）,同一个进程中的所有线程共享进程的资源，所以在线程之间的切换比进程间的切换快很多。
+
+线程是操作系统进行CPU调度的基本单位。
+
+Thread workThread = new Thread(entryPoint);
+每一个线程都需要一个入口函数，因为线程是从入口函数中的代码开始执行的。
+
+16 委托与事件
+
+委托(Delegate) 将一个函数作为另一个函数的参数
+delegate void AnimalPlay(string name);
+delegate 关键字 实际上 定义了 一种 “函数类型”， 它明确了函数的 参数类型和返回值类型。
+当我们需要把某个函数作为参数时，首先要把它转换为委托实例。
+以委托为参数的函数具有一定的通用性。
+利用委托可以实现以“函数”为参数，提高程序的通用性。
+
+委托用关键字 delegate 声明，实际上创建一种委托相当于创建一个从System.Delegate 派生出来的类，类中有一个调用列表，列表中包含着被委托函数的引用。
+16.2 多播委托（Multicast Delegate）
+我们可以向一个委托中注册多个函数。
+AnimalPlay animalsAct = new AnimalPlay(DogPly);
+animalsAct += new AnimalPlay(CatPlay);
+animalsAct =+ new AnimalPlay(LionPlay);
+
+当使用animalsAct 委托时，这三个函数被依次调用。
+
+利用匿名函数可以直接把“代码块”定义成委托，二不需要实现定义函数。
+Integrand f3 = deldgate(double x) {
+    return 3*x+5;
+}
+
+double result3= DefiniteIntegrate(2,8,f3);
+Console.WriteLine("result3 = {0}",result3);
+
+当外层变量被匿名函数捕获时，它们的生存周期将延长至委托被销毁为止。
+int a =3;
+int b =5;
+Integrand f4 = delegate(double x){
+    return a * x +b ;
+}// b 被匿名函数捕获
+
+16.4 事件处理机制
+
+触发事件(raise event)
+
+单击按钮，触发Click事件，系统会调用该事件的处理程序myButton_Click。我们把触发事件的对象称为事件的发送则（EventSender）,响应事件的对象成为事件的接收者(EventReceiver).
+.NET 以委托机制运行事件处理程序。
+
+事件 实际上 就是 一个委托实例，它和变量、属性等一样都是类的数据成员，只是声明事件时，必须用event关键字。
+因为 事件 本质上就是一个委托，所以我们可以在一个事件中注册多个事件处理程序，当事件发生时，系统就会依次调用事件中所有的处理程序。
+
+16.4.2 自定义事件
+
+创建一个事件驱动的程序步骤
+1.声明关于事件的委托；
+2.声明事件；
+3.编写触发事件的函数；
+4.创建事件处理程序；
+5.注册事件处理程序；
+6.在适当的条件下触发事件；
+
+18 文件 和 流
+File 类 中所有的方法都是静态的
+FileInfo 类 的成员方法都是非静态的，使用方法前需要先创建一个FileInfo类的对象，然后通过FileInfo对象来调用方法。
+a directory is a container used for organizing files,
+while a path is the textual representation of the route to access a file or directory within a file system.

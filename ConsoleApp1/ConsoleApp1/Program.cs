@@ -5,10 +5,12 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Channels;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+    
     enum WeekDays:short
     {
         Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
@@ -25,6 +27,8 @@ namespace ConsoleApp1
 
     enum sex :short { 
     Male,Female}
+
+
     internal class Program
     {
 
@@ -88,6 +92,9 @@ namespace ConsoleApp1
         }
         static void Main(string[] args)
         {
+
+            Thread workThread = new Thread(entryPoint);
+
             #region MyRegion
             Console.WriteLine(Fibnacci(7)); 
             #endregion
