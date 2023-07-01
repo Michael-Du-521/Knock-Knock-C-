@@ -405,3 +405,39 @@ Directory类中的方法都是静态的。
 DirectoryInfo类的成员方法都是非静态的，使用前需要先创建一个DirectoryInfo类的对象。当频繁操作某目录时，使用DirectoryInfo类的效率会更高。
 
 Environment.CurrentDirectory 获取程序所在目录的路径
+
+18.2 基于流的文件操作
+
+.NET设计了称为 流（Stream）的类来读写文件。
+一旦操作者在系统中打开一个文件，它就和一个流相关联。
+通过 流 这种专门用于传输数据的工具来传输数据，就可以使得传输工具和数据源分离开来，从而更容易切换数据源， 更容易实现在不同环境下代码的重用。
+要使用 流 ，必须先创建一个 流 的对象。
+
+获取 文件 对应的流的两种办法
+
+FileStream fileStream = myFile.OpenWrite();
+FileStream fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+using 语句:using 后括号内 创建了一个流对象 ， 然后在using 后的语句块中使用 该流对象（或任何包含Dispose（）方法且需要及时销毁的对象）。当退出 using 语句时， 系统会自动关闭 该流对象。它适用于 需要及时释放资源的代码。
+using 语句实际上是对 try语句的封装
+
+using(FileStream fileStream = File.OpenText(path))
+{
+    byte[] data ={100,101,102,103};
+    fileStream.Write(data,0,data.Length);
+}
+
+A boolean value typically only needs one bit to represent its value,
+but due to the way that memory addressing works, it is usually not possible to allocate only one bit of memory.
+Therefore, a byte is often used to store a single boolean value, with 7 bits unused.
+
+实际上,BinaryReader和BinaryWriter本身并不是独立的流，它们是对其他流的包装，所以创建BinaryReader和BinaryWriter对象时，需要传给它们一个FileStream对象，对BinaryReader和BinaryWriter的操作，就是对FileStream的操作。
+
+19 字符串和正则表达式
+利用正则表达式进行文本匹配。
+
+在字符串类型间，赋值运算符“=” 能将一个string变量的值赋给另一个string变量。实际上赋值运算符= 是将原字符串变量的引用复制了一份，传递给目标字符串变量，从而使得两个变量指向同一个字符串。
+字符串类型是不可改变的，也就是说，当程序员试图改变一个旧的字符串时，系统在内存中创建了一个全新的字符串，并将原来的字符串引用指向新的字符串。
+string.Copy() 函数 会创建一个新的字符串。
+
+IndexOf() 可以找到指定字符，在字符串中第一次出现的位置，如果找不到指定的字符串，就返回-1.
