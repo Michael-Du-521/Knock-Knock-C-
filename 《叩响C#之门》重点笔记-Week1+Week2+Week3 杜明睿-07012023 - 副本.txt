@@ -527,3 +527,30 @@ MonitorÀàÖ»ÄÜËø¶¨ÒýÓÃÀàÐÍ¶ÔÏó£¬¶ø²»ÄÜËø¶¨ÖµÀàÐÍ¡£ÒòÎªµ±²ÎÊýÎªÖµÀàÐÍ±äÁ¿Ê±£¬Ã¿µ÷Ó
 MutexÀà¿ÉÒÔ¿çÔ½Ó¦ÓÃ³ÌÐò±ß½ç£¬ÔÚ¶à¸öÓ¦ÓÃ³ÌÐòÖ®¼ä½øÐÐÍ¬²½¡£
 ¾Ö²¿»¥³âÌå£ºÖ»ÄÜÔÚ´´½¨ËüµÄ³ÌÐòÖÐÊ¹ÓÃ
 ÏµÍ³»¥³âÌå£ºÄÜ±»ÏµÍ³ÖÐ²»Í¬µÄÓ¦ÓÃ³ÌÐò¹²Ïí
+
+ËÀËø»áµ¼ÖÂ³ÌÐòÍ£ÖÍ²»Ç°£¬½â¾ö¸ÃÎÊÌâµÄ°ì·¨ÊÇ£¬Ö»ÒªÁ½¸öÏß³ÌÒÔÏàÍ¬µÄË³Ðò·ÃÎÊÁÙ½ç×ÊÔ´¡£
+
+21.7 Ïß³Ì³Ø
+ThreadPool ÊÇÒ»¸ö¾²Ì¬Àà£¬²»±Ø´´½¨ÊµÀý¾Í¿ÉÒÔÊ¹ÓÃËü¡£Ò»¸öÓ¦ÓÃ³ÌÐò×î¶àÖ»ÓÐÒ»¸öÏß³Ì³Ø£¬Ëü»áÔÚÊ×´ÎÏòÏß³Ì³ØÖÐÅÅÈë¹¤×÷º¯ÊýÊ±£¬×Ô¶¯´´½¨
+¡£Ïß³Ì³ØÌá¸ßÐ§ÂÊµÄ¹Ø¼üÊÇÒ»¸öÏß³ÌÍê³ÉÈÎÎñºó¿ÉÒÔ¼ÌÐøÎªÆäËûÈÎÎñ·þÎñ£¬ÕâÑù¾Í¿ÉÒÔÊ¹ÓÃÓÐÏÞµÄ¼¸¸ö¹Ì¶¨Ïß³ÌÂÖÁ÷Îª´óÁ¿ÈÎÎñ·þÎñ£¬´Ó¶ø¼õÉÙÁËÒòÎªÆµ·±´´½¨ºÍÏú»ÙÏß³ÌËùÔì³ÉµÄÏûºÄ¡£
+22.1 ¼¯ºÏ£ºÒ»×éÏà»¥¹ØÁªµÄ¶ÔÏó×é³É¼¯ºÏ¡£
+
+ËùÓÐµÄ¼¯ºÏ¶¼Ö±½Ó»ò¼ä½ÓµØÊµÏÖÁËIEnumerable½Ó¿Ú£¬foreachÓï¾ä»á×Ô¶¯µ÷ÓÃ,IEnumerable½Ó¿ÚÖÐµÄGetEnumerator()·½·¨£¬´Ó¶ø»ñÈ¡¼¯ºÏÖÐµÄÔªËØ¡£
+
+µ±ArrayListÊý×éÁÐ±íµÄÈÝÁ¿·¢Éú¸Ä±äÊ±£¬ÏµÍ³»á·ÖÅäÐÂµÄÄÚ´æ¿Õ¼ä£¬´´½¨Ò»¸öÈ«ÐÂµÄÊý×éÁÐ±í£¬È»ºó°ÑÔ­Êý×éÁÐ±íµÄÄÚÈÝ¸´ÖÆµ½ÐÂÊý×éÁÐ±íÖÐ£¬Ö®ºóÉ¾³ýÔ­Êý×éÁÐ±í¡£
+ArrayList°ÑËüÀïÃæËùÓÐµÄÔªËØ¶¼¿´×÷ObjectÀàÐÍ£¨ÖµÀàÐÍ±äÁ¿Ò²»á±»×Ô¶¯×°Ïä³ÉObjectÀàÐÍ£©£¬Òò´Ëµ±Ê¹ÓÃÕâÐ©ÔªËØÊ±£¬ÐèÒª°ÑËüÃÇÏÔÊ¾×ª»»ÎªÇ¡µ±µÄÀàÐÍ¡£
+Êý×éÊÇ¶ÁÐ´×î¿ìµÄÊý¾Ý½á¹¹£¬ÒòÎªÊý×éÔÚÄÚ´æÖÐÊÇÁ¬ÐøÅÅÁÐµÄ£¬¸ù¾ÝÊý×éÔÚÄÚ´æÖÐµÄÊ×µØÖ·ºÍÔªËØµÄË÷Òý¾Í¿ÉÒÔÖ±½Ó¼ÆËã³öÔªËØÔÚÄÚ´æÖÐµÄµØÖ·¡£
+ÔªËØÔÚÄÚ´æÖÐµÄµØÖ·=Êý×éµÄÊ×µØÖ·+ÔªËØµÄË÷Òý*ÔªËØµÄ´óÐ¡
+
+É¢ÁÐº¯ÊýÄÜ¹»¸ù¾Ý¹Ø¼üÂëÖ±½Ó¼ÆËã³öÔªËØµÄË÷Òý£¬ËùÒÔÎÒÃÇÖ»ÐèÒª½øÐÐÒ»´Î±È½Ï¾Í¿ÉÒÔÕÒµ½ËùÐèÔªËØ¡£.Net ²ÉÓÃopen addressing ¿ªµØÖ··½·¨ ½â¾öÉ¢ÁÐÂë³åÍ»ÎÊÌâ£¬Ê×ÏÈÍ¨¹ýÉ¢ÁÐº¯Êý¼ÆËã³ö»ùÎ»ÖÃ¡£Èç¹û·¢ÏÖ»ùÎ»ÖÃÒÑ¾­±»Õ¼ÓÃ£¬¾Í¸ù¾ÝÒ»¶¨µÄÆ«ÒÆÁ¿ÏòÏÂÑ°ÕÒ£¬ÖªµÀÕÒµ½¿ÕÎ»ÖÃÎ»ÖÃ¡£Æ«ÒÆÁ¿ÓÉÒ»¶¨µÄËã·¨²úÉú¡£
+.NetÖÐËùÓÐµÄÀà¶¼´ÓObjectÀà¼Ì³ÐÀ´GetHashCode£¨£©·½·¨¡£
+Hashtable colorTable = new Hashtable(17,0.5f);
+colorTable.Add(red.Name,red);
+colorTable["Blue"] = new Color("Blue,0,0,255");
+23 ·ºÐÍ
+
+µ±ÎÒÃÇÓÃ¾ßÌåµÄÀàÐÍint´úÌæ³éÏóÀàÐÍTºó£¬¹«¹²ÓïÑÔÔËÐÐÊ±£¨Common language runtime£© ÔÚ½øÐÐJIT±àÒëÊ±£¬»áÓÃint´úÌæ·ºÐÍÀàÖÐµÄT´´Ôì³öÒ»¸öÒÔintÎªÔªËØÀàÐÍµÄÐÂÀà£¬Õâ±»³ÉÎª·ºÐÍÀàÐÍµÄÊµÀý»¯(Generic Type Instantiation)
+23.3 ÀàÐÍÔ¼Êø
+class AnimalFamily<T> where T:Animal{
+// snippet
+}
