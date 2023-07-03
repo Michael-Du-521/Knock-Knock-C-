@@ -450,3 +450,49 @@ IndexOf() 可以找到指定字符，在字符串中第一次出现的位置，如果找不到指定的字符串，
 
 .NET 约定 所有特性的名称都已Attribute结尾。它预定了了200+特性，可以为代码中的程序元素提供丰富的描述信息。CLR（Common Language Runtime）通过这些描述信息控制程序元素的行为特征。
 特性 也是 以类的方式实现的，一个特性就是一个类。
+
+特性的必选参数：构造函数里定义的参数是必选参数。
+特性的可选参数：特性类里的共有变量作为可选参数。
+自定义的特性本质上也是一个类，在定义它的过程中，也可以被其他特性（比如，AttributeUsageAttribute）修饰。
+特性作用于程序元素后，就成为程序元素的一部分。
+20.2 程序集 (Assembly)是组织程序的逻辑单元。我们编写好的代码最终都会被编译器编译为若干个程序集。程序集中可以包含图像、图标及声音。
+
+单文件程序集将它的内容都存放在一个文件中；多文件程序集则将它的内容分别放在多个文件中。不论单文件程序集还是多文件程序集，它们都由固定的结构组成。
+-可执行文件 .exe : 可执行文件有一个程序入口点，单击它就可以运行。 例如，mspaint.exe
+-动态链接库文件 .dll ： 动态链接库没有程序入口点，它由一组相关的类构成，只能供其他程序调用。 例如，System.Drawing.dll
+mspaint.exe 调用 System.Drawing.dll; System.Drawing.dll 支持 mspaint.exe。
+
+动态链接库
+   - 早期 Win32函数库
+   - .NET 框架类库
+
+   程序集的结构，程序集是自我说明的，一个程序集可以包含多个命名空间，一个命名空间namespace可以分布在多个程序集中。
+
+   -程序集元数据：记录了程序集的自我说明信息的核心文档，当程序运行时，Common Language Runtime 通过该程序集元数据可以获取到运行程序据所必需的全部信息。
+   #标识信息（程序集的名称、版本、文化及公钥）
+   #文件列表 （程序集由那些文件组成)
+   #引用程序集列表（该程序集所引用的其他程序集）
+   #一组许可请求（运行该程序集需要的许可）
+   -类型元数据 ：列举了程序集中包含的类型信息，详细说明了程序集中定义了哪些类，每个类包含哪些属性和函数，每个函数的参数及返回值类型。
+   -MSIL（Microsoft Intermediate Language）代码实现程序集的功能。
+   -资源：图像、图标、声音等
+
+   20.2.3 私有程序集和共享程序集
+   .NET 类库 中的程序集 就是共享程序集，任何软件都可以方便地调用这些程序集。
+   GAC (Global Assmbelys Cache)
+
+   GUID stands for Globally Unique Identifier.
+   It is a 128-bit value that is used in computer systems to identify resources
+   such as files, databases, and objects in a way that
+   is globally unique and does not conflict with other identifiers.
+
+   GUIDs are designed to be globally unique, which means that they can be used to identify resources across different systems, networks, and geographic locations without the risk of conflicting with other identifiers. This is achieved by using a combination of unique identifiers,
+   such as the MAC address of the network card, the current date and time, and a random number.
+
+   20.3 反射： 通过.NET的反射机制(Reflection),我们可以轻松地获取类型和程序集信息。
+   20.3.2 获取程序集信息
+   在获取程序集元数据之前，需要先用Assembly对象的Load（）方法把程序集加载到内存中。
+   object animalInstance = Activator.CreateInstance(AnimalType,null)
+   IDrawAnimal animal = animalInstance as IDrawAnimal;
+
+   利用反射机制实现 动态加载类型 和 动态调用方法。
