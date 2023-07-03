@@ -330,17 +330,7 @@ Exception类，拥有Message 和 StackTrace 公共属性。 Message 用于描述异常的原因；St
 
 partical 关键字 允许 把同一个类分别定义在多个源文件中。
 
-21 多线程
 
-操作系统以进程(Process)的方式运行应用程序，进程包括 应用程序的指令流、运行程序所需的内存和寄存器资源。
-系统里开启三个应用程序，系统就创建了三个进程，就增加了三条执行路线。操作系统轮流执行每个进程，每个进程执行一小段时间，三个进程循环往复，交替进行。因为交替时间很短（一般只有几十毫秒）人们根本感觉不到如此短暂的停顿。
-
-在一个进程中，我们可以创建若干个线程（Threading）,同一个进程中的所有线程共享进程的资源，所以在线程之间的切换比进程间的切换快很多。
-
-线程是操作系统进行CPU调度的基本单位。
-
-Thread workThread = new Thread(entryPoint);
-每一个线程都需要一个入口函数，因为线程是从入口函数中的代码开始执行的。
 
 16 委托与事件
 
@@ -450,3 +440,90 @@ IndexOf() 可以找到指定字符，在字符串中第一次出现的位置，如果找不到指定的字符串，
 
 .NET 约定 所有特性的名称都已Attribute结尾。它预定了了200+特性，可以为代码中的程序元素提供丰富的描述信息。CLR（Common Language Runtime）通过这些描述信息控制程序元素的行为特征。
 特性 也是 以类的方式实现的，一个特性就是一个类。
+
+特性的必选参数：构造函数里定义的参数是必选参数。
+特性的可选参数：特性类里的共有变量作为可选参数。
+自定义的特性本质上也是一个类，在定义它的过程中，也可以被其他特性（比如，AttributeUsageAttribute）修饰。
+特性作用于程序元素后，就成为程序元素的一部分。
+20.2 程序集 (Assembly)是组织程序的逻辑单元。我们编写好的代码最终都会被编译器编译为若干个程序集。程序集中可以包含图像、图标及声音。
+
+单文件程序集将它的内容都存放在一个文件中；多文件程序集则将它的内容分别放在多个文件中。不论单文件程序集还是多文件程序集，它们都由固定的结构组成。
+-可执行文件 .exe : 可执行文件有一个程序入口点，单击它就可以运行。 例如，mspaint.exe
+-动态链接库文件 .dll ： 动态链接库没有程序入口点，它由一组相关的类构成，只能供其他程序调用。 例如，System.Drawing.dll
+mspaint.exe 调用 System.Drawing.dll; System.Drawing.dll 支持 mspaint.exe。
+
+动态链接库
+   - 早期 Win32函数库
+   - .NET 框架类库
+
+   程序集的结构，程序集是自我说明的，一个程序集可以包含多个命名空间，一个命名空间namespace可以分布在多个程序集中。
+
+   -程序集元数据：记录了程序集的自我说明信息的核心文档，当程序运行时，Common Language Runtime 通过该程序集元数据可以获取到运行程序据所必需的全部信息。
+   #标识信息（程序集的名称、版本、文化及公钥）
+   #文件列表 （程序集由那些文件组成)
+   #引用程序集列表（该程序集所引用的其他程序集）
+   #一组许可请求（运行该程序集需要的许可）
+   -类型元数据 ：列举了程序集中包含的类型信息，详细说明了程序集中定义了哪些类，每个类包含哪些属性和函数，每个函数的参数及返回值类型。
+   -MSIL（Microsoft Intermediate Language）代码实现程序集的功能。
+   -资源：图像、图标、声音等
+
+   20.2.3 私有程序集和共享程序集
+   .NET 类库 中的程序集 就是共享程序集，任何软件都可以方便地调用这些程序集。
+   GAC (Global Assmbelys Cache)
+
+   GUID stands for Globally Unique Identifier.
+   It is a 128-bit value that is used in computer systems to identify resources
+   such as files, databases, and objects in a way that
+   is globally unique and does not conflict with other identifiers.
+
+   GUIDs are designed to be globally unique, which means that they can be used to identify resources across different systems, networks, and geographic locations without the risk of conflicting with other identifiers. This is achieved by using a combination of unique identifiers,
+   such as the MAC address of the network card, the current date and time, and a random number.
+
+   20.3 反射： 通过.NET的反射机制(Reflection),我们可以轻松地获取类型和程序集信息。
+   20.3.2 获取程序集信息
+   在获取程序集元数据之前，需要先用Assembly对象的Load（）方法把程序集加载到内存中。
+   object animalInstance = Activator.CreateInstance(AnimalType,null)
+   IDrawAnimal animal = animalInstance as IDrawAnimal;
+
+  利用反射机制实现 动态加载类型 和 动态调用方法。
+
+21 多线程
+
+操作系统以进程(Process)的方式运行应用程序，进程包括 应用程序的指令流、运行程序所需的内存和寄存器资源。
+系统里开启三个应用程序，系统就创建了三个进程，就增加了三条执行路线。操作系统轮流执行每个进程，每个进程执行一小段时间，三个进程循环往复，交替进行。因为交替时间很短（一般只有几十毫秒）人们根本感觉不到如此短暂的停顿。
+
+在一个进程中，我们可以创建若干个线程（Threading）,同一个进程中的所有线程共享进程的资源，所以在线程之间的切换比进程间的切换快很多。
+
+线程是操作系统进行CPU调度的基本单位。
+
+Thread workThread = new Thread(entryPoint);
+每一个线程都需要一个入口函数，因为线程是从入口函数中的代码开始执行的。
+public delegate void ThreadStart(); // 在该情况下，传递给线程的入口函数必须是没有参数和返回值的函数。
+
+在中止线程时，Abort()方法会抛出一个ThreadAbortException异常，这样如果线程中止时，恰好正在执行try语句中的代码，就可以确保对应的finally块被执行，从而确保相应的资源被释放。
+
+后台线程不妨碍程序的终止。一旦一个应用程序的所有前台程序都中止，Common Language Runtime 就通过调用任意一个存活中的后台进程Abort（）方法来彻底中止程序。 
+21.6.1 线程的同步
+无关线程：各自独立运行互不干扰的线程。
+相关线程：一个线程等待另一个线程的运算结果；两个线程共享一个资源。
+临界资源（Critical Resource）： 多个线程共享的资源。
+临界区（Critical Region) ：访问临界资源的代码。
+
+系统中往往有多个线程交替执行，它们被执行的时间是不确定的。因此为了保证两个线程协同工作的情况被称之为 线程同步（Synchronization）
+-Interlocked
+Interlocked.Decrement(ref numberOfUsedSpace);
+Interlocked.Increment(ref numberOfUsedSpace);
+
+when a parameter is passed by reference using the ref keyword,
+any changes made to the parameter within a method will affect the original value outside the method.
+-Monitor
+只有获得独占锁的线程才能访问临界资源。
+Monitor类包含的是静态方法，使用时不必创建Monitor类对象。
+Monitor类只能锁定引用类型对象，而不能锁定值类型。因为当参数为值类型变量时，每调用一次Monitor.Enter()方法，
+值类型变量就会进行一次装箱操作，就得到一个新的Object型对象
+，因此Monitor类的不同操作发生在不同对象上，从而不能实现同步。
+-Mutex
+在操作系统中，线程常常需要共享资源，而这些资源往往要求排他性使用，即该资源一次只能为一个线程服务。这种排他性地使用共享资源成为线程间的互斥（Mutual Excusion）
+Mutex类可以跨越应用程序边界，在多个应用程序之间进行同步。
+局部互斥体：只能在创建它的程序中使用
+系统互斥体：能被系统中不同的应用程序共享
